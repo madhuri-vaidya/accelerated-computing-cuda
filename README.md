@@ -1,0 +1,1 @@
+Contains coding exercises from NVIDIA's course "Getting Started with Accelerated Computing in CUDA C/C++"

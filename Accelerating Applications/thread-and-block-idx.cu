@@ -1,0 +1,27 @@
+// Run Command
+// !nvcc -o thread-and-block-idx 03-indices/01-thread-and-block-idx.cu -run
+
+#include <stdio.h>
+
+__global__ void printSuccessForCorrectExecutionConfiguration()
+{
+
+  if(threadIdx.x == 1023 && blockIdx.x == 255)
+  {
+    printf("Success!\n");
+  } else {
+    //printf("Failure. Update the execution configuration as necessary.\n");
+  }
+}
+
+int main()
+{
+  /*
+   * Update the execution configuration so that the kernel
+   * will print `"Success!"`.
+   */
+
+  printSuccessForCorrectExecutionConfiguration<<<256, 1024>>>();
+
+    cudaDeviceSynchronize();
+}
